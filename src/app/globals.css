@@ -503,16 +503,52 @@ summary:focus-visible {
 }
 
 .report-card {
+  position: relative;
   display: flex;
   min-height: 34rem;
   flex-direction: column;
+  overflow: hidden;
   border: 1px solid rgba(255, 248, 235, 0.16);
   border-radius: 8px;
   padding: clamp(1.55rem, 3.2vw, 2.15rem);
   background:
+    radial-gradient(circle at 88% 14%, rgba(216, 198, 173, 0.12), transparent 24%),
     linear-gradient(135deg, rgba(255, 248, 235, 0.1), transparent 54%),
     rgba(255, 248, 235, 0.055);
   box-shadow: 0 22px 58px rgba(0, 0, 0, 0.18);
+  isolation: isolate;
+}
+
+.report-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(255, 248, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 248, 235, 0.045) 1px, transparent 1px);
+  background-size: 3.35rem 3.35rem;
+  opacity: 0.28;
+}
+
+.report-card::after {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.15rem;
+  z-index: 0;
+  width: 5.4rem;
+  height: 3.4rem;
+  border-right: 1px solid rgba(216, 198, 173, 0.18);
+  border-bottom: 1px solid rgba(216, 198, 173, 0.18);
+  pointer-events: none;
+  content: "";
+  opacity: 0.78;
+}
+
+.report-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .report-card-featured {
@@ -639,16 +675,28 @@ summary:focus-visible {
 }
 
 .custom-report-note {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
   align-items: flex-start;
+  overflow: hidden;
   margin-top: 1.35rem;
   border: 1px solid rgba(255, 248, 235, 0.14);
   border-radius: 8px;
   padding: 1.05rem;
-  background: rgba(255, 248, 235, 0.06);
+  background:
+    linear-gradient(90deg, rgba(255, 248, 235, 0.08), transparent 52%),
+    rgba(255, 248, 235, 0.06);
   color: rgba(255, 248, 235, 0.74);
+}
+
+.custom-report-note::before {
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px solid rgba(255, 248, 235, 0.045);
+  pointer-events: none;
+  content: "";
 }
 
 .custom-report-note p {
@@ -733,13 +781,22 @@ summary:focus-visible {
 .process-card {
   position: relative;
   min-height: 16.5rem;
+  overflow: hidden;
   border: 1px solid rgba(255, 248, 235, 0.15);
   border-radius: 8px;
   padding: 1.25rem;
   background:
+    radial-gradient(circle at 18% 12%, rgba(216, 198, 173, 0.1), transparent 22%),
+    linear-gradient(90deg, rgba(255, 248, 235, 0.035) 1px, transparent 1px),
     linear-gradient(135deg, rgba(255, 248, 235, 0.1), transparent 58%),
     rgba(255, 248, 235, 0.055);
+  background-size:
+    auto,
+    3.1rem 3.1rem,
+    auto,
+    auto;
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.16);
+  isolation: isolate;
 }
 
 .process-section {
@@ -771,8 +828,15 @@ summary:focus-visible {
   right: 1.2rem;
   width: 2.5rem;
   height: 1px;
+  z-index: 0;
+  pointer-events: none;
   content: "";
   background: rgba(216, 198, 173, 0.42);
+}
+
+.process-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .process-card h3 {
@@ -792,12 +856,50 @@ summary:focus-visible {
 
 .apply-panel,
 .final-cta {
+  position: relative;
+  overflow: hidden;
   border: 1px solid rgba(59, 42, 32, 0.16);
   border-radius: 8px;
   background:
+    radial-gradient(circle at 88% 10%, rgba(140, 96, 79, 0.08), transparent 24%),
     linear-gradient(135deg, rgba(255, 248, 235, 0.74), rgba(244, 237, 223, 0.58)),
     rgba(255, 248, 235, 0.7);
   box-shadow: 0 24px 70px rgba(39, 30, 21, 0.1);
+  isolation: isolate;
+}
+
+.apply-panel::before,
+.final-cta::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(59, 42, 32, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(59, 42, 32, 0.036) 1px, transparent 1px);
+  background-size: 4.4rem 4.4rem;
+  opacity: 0.36;
+}
+
+.apply-panel::after,
+.final-cta::after {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 0;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-right: 1px solid rgba(59, 42, 32, 0.12);
+  border-bottom: 1px solid rgba(59, 42, 32, 0.12);
+  pointer-events: none;
+  content: "";
+}
+
+.apply-panel > *,
+.final-cta > * {
+  position: relative;
+  z-index: 1;
 }
 
 .apply-panel {
@@ -865,13 +967,29 @@ summary:focus-visible {
 }
 
 .faq-card {
+  position: relative;
+  overflow: hidden;
   border: 1px solid rgba(59, 42, 32, 0.14);
   border-radius: 8px;
-  background: rgba(255, 248, 235, 0.66);
+  background:
+    linear-gradient(90deg, rgba(140, 96, 79, 0.035), transparent 42%),
+    rgba(255, 248, 235, 0.66);
   box-shadow: 0 14px 36px rgba(39, 30, 21, 0.055);
 }
 
+.faq-card::before {
+  position: absolute;
+  top: 1rem;
+  right: 1.1rem;
+  width: 2.4rem;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: rgba(140, 96, 79, 0.16);
+}
+
 .faq-card summary {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 1rem;
@@ -884,6 +1002,7 @@ summary:focus-visible {
   font-weight: 800;
   line-height: 1.5;
   word-break: keep-all;
+  z-index: 1;
 }
 
 .faq-card summary::-webkit-details-marker {
@@ -902,12 +1021,14 @@ summary:focus-visible {
 }
 
 .faq-card p {
+  position: relative;
   margin: 0;
   border-top: 1px solid rgba(59, 42, 32, 0.12);
   padding: 1rem 1.1rem 1.2rem;
   color: var(--muted);
   font-size: 0.98rem;
   line-height: 1.85;
+  z-index: 1;
 }
 
 .process-number {
@@ -918,8 +1039,10 @@ summary:focus-visible {
 }
 
 .question-guide {
+  position: relative;
   display: grid;
   gap: 2rem;
+  overflow: hidden;
   border: 1px solid rgba(59, 42, 32, 0.14);
   border-radius: 8px;
   padding: clamp(1.35rem, 4.2vw, 2.5rem);
@@ -929,20 +1052,48 @@ summary:focus-visible {
   box-shadow: 0 22px 60px rgba(39, 30, 21, 0.075);
 }
 
+.question-guide::before {
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(59, 42, 32, 0.045);
+  pointer-events: none;
+  content: "";
+}
+
+.question-guide > * {
+  position: relative;
+  z-index: 1;
+}
+
 .question-card-grid {
   display: grid;
   gap: 0.85rem;
 }
 
 .question-card {
+  position: relative;
   display: grid;
   grid-template-columns: 2.7rem 1fr;
   gap: 0.9rem;
   align-items: start;
+  overflow: hidden;
   border: 1px solid rgba(59, 42, 32, 0.12);
   border-radius: 8px;
   padding: 1rem;
-  background: rgba(255, 248, 235, 0.66);
+  background:
+    radial-gradient(circle at 92% 18%, rgba(140, 96, 79, 0.08), transparent 18%),
+    rgba(255, 248, 235, 0.66);
+}
+
+.question-card::after {
+  position: absolute;
+  right: 0.95rem;
+  bottom: 0.95rem;
+  width: 1.7rem;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: rgba(140, 96, 79, 0.18);
 }
 
 .question-card span {
@@ -962,10 +1113,41 @@ summary:focus-visible {
 }
 
 .notice-panel {
+  position: relative;
   max-width: 56rem;
+  overflow: hidden;
   margin-inline: auto;
   padding: clamp(1.25rem, 4vw, 2rem);
   text-align: center;
+  isolation: isolate;
+}
+
+.notice-panel::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 0%, rgba(140, 96, 79, 0.075), transparent 34%),
+    linear-gradient(90deg, transparent 0 48%, rgba(59, 42, 32, 0.05) 48% 52%, transparent 52%);
+}
+
+.notice-panel::after {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 0;
+  border: 1px solid rgba(59, 42, 32, 0.055);
+  pointer-events: none;
+  content: "";
+}
+
+.notice-panel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .notice-panel p:last-child {

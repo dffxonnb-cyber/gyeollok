@@ -1,5 +1,14 @@
-const APPLICATION_FORM_URL = "#apply";
-const OPEN_CHAT_URL = "#apply";
+const APPLICATION_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe_CutJ3d_phBNuSay0NcDMC--84Ux9ZnXZiJcrK8LFaPYsRQ/viewform?usp=publish-editor";
+const OPEN_CHAT_URL = "https://open.kakao.com/o/ssHr6Cwi";
+
+function getExternalLinkProps(url: string) {
+  return {
+    href: url,
+    target: "_blank",
+    rel: "noreferrer",
+  } as const;
+}
 
 const visualCards = [
   {
@@ -275,7 +284,10 @@ export default function Home() {
               사람의 질문에 맞춰 보고서로 정리하는 개인 해석 서비스입니다.
             </p>
             <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-9 sm:flex sm:flex-wrap">
-              <a className="button-primary" href={APPLICATION_FORM_URL}>
+              <a
+                className="button-primary"
+                {...getExternalLinkProps(APPLICATION_FORM_URL)}
+              >
                 리포트 신청하기
               </a>
               <a className="button-secondary" href="#sample">
@@ -389,15 +401,23 @@ export default function Home() {
                       <dd>{report.bestFor}</dd>
                     </div>
                   </dl>
-                  <a className="report-button" href={APPLICATION_FORM_URL}>
+                  <a
+                    className="report-button"
+                    {...getExternalLinkProps(APPLICATION_FORM_URL)}
+                  >
                     이 리포트 신청하기
                   </a>
                 </article>
               ))}
             </div>
             <div className="custom-report-note">
-              <p>총정리 리포트를 원하시는 분은 오픈채팅으로 문의해 주세요.</p>
-              <a href={OPEN_CHAT_URL}>총정리 리포트 문의하기</a>
+              <p>
+                총정리 리포트를 원하시는 분은 오픈채팅으로 문의해 주세요. 범위가
+                넓은 리포트는 신청 전 먼저 방향을 맞춰드립니다.
+              </p>
+              <a {...getExternalLinkProps(OPEN_CHAT_URL)}>
+                총정리 리포트 문의하기
+              </a>
             </div>
           </div>
         </section>
@@ -559,9 +579,9 @@ export default function Home() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   className="button-primary"
-                  href={APPLICATION_FORM_URL}
                   aria-describedby="form-placeholder-note"
                   data-form-placeholder="true"
+                  {...getExternalLinkProps(APPLICATION_FORM_URL)}
                 >
                   신청 폼 열기
                 </a>
@@ -569,8 +589,7 @@ export default function Home() {
                   id="form-placeholder-note"
                   className="max-w-xl text-sm leading-6 text-muted"
                 >
-                  실제 신청 폼 링크는 추후 Google Form 또는 자체 신청 페이지로
-                  연결할 수 있습니다.
+                  신청 버튼을 누르면 Google Form 신청서가 새 창으로 열립니다.
                 </p>
               </div>
             </div>
@@ -639,12 +658,14 @@ export default function Home() {
                   가능합니다.
                 </p>
                 <p>
-                  신청 폼은 추후 Google Form 또는 자체 신청 페이지로 연결할 수
-                  있습니다.
+                  신청 버튼을 누르면 Google Form 신청서가 새 창으로 열립니다.
                 </p>
               </div>
             </div>
-            <a className="final-cta-button" href={APPLICATION_FORM_URL}>
+            <a
+              className="final-cta-button"
+              {...getExternalLinkProps(APPLICATION_FORM_URL)}
+            >
               리포트 신청하기
             </a>
           </div>
