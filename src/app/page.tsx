@@ -1,3 +1,5 @@
+import { SampleReportPreview } from "@/components/SampleReportPreview";
+
 const APPLICATION_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSe_CutJ3d_phBNuSay0NcDMC--84Ux9ZnXZiJcrK8LFaPYsRQ/viewform?usp=publish-editor";
 const OPEN_CHAT_URL = "https://open.kakao.com/o/ssHr6Cwi";
@@ -124,14 +126,6 @@ const reportProducts = [
     bestFor: "연애, 가족, 친구, 동업 관계의 흐름을 알고 싶은 사람",
     marker: "緣",
   },
-];
-
-const tableOfContents = [
-  "명식 핵심 요약",
-  "오행과 십성의 흐름",
-  "기질과 관계 패턴",
-  "직업·재물 방향",
-  "올해의 선택 전략",
 ];
 
 const processSteps = [
@@ -422,77 +416,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="sample"
-          className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.72fr_1fr] lg:items-center lg:px-10"
-        >
-          <div>
-            <p className="section-kicker">샘플 리포트</p>
-            <h2 className="section-title mt-4 text-ink">
-              결제 후 받게 될 문서의
-              <br />
-              밀도를 먼저 확인합니다.
-            </h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
-              결록의 리포트는 목차, 요약, 해석, 선택 전략이 구분된 문서입니다.
-              아래 화면은 전체 리포트가 아닌 샘플 미리보기입니다.
-            </p>
-          </div>
-
-          <article className="sample-report" aria-label="커리어 리포트 샘플 미리보기">
-            <div className="sample-watermark" aria-hidden="true">
-              SAMPLE
-            </div>
-            <div className="relative border-b border-archive pb-6">
-              <div className="flex flex-wrap items-start justify-between gap-5">
-                <div>
-                  <p className="text-sm font-semibold tracking-[0.22em] text-muted">
-                    GEOLLOK REPORT
-                  </p>
-                  <h3 className="mt-3 text-2xl font-semibold text-ink">
-                    커리어 리포트 샘플
-                  </h3>
-                  <p className="mt-2 text-sm text-muted">
-                    익명 / 출생 정보 비공개
-                  </p>
-                </div>
-                <p className="rounded-full border border-archive px-4 py-2 text-sm text-muted">
-                  샘플 미리보기
-                </p>
-              </div>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-ink">
-                이 리포트는 명식의 재능 구조와 현재 질문을 함께 보고, 직업
-                선택의 방향을 정리한 예시입니다.
-              </p>
-            </div>
-
-            <div className="relative mt-7 grid gap-7 lg:grid-cols-[0.78fr_1fr]">
-              <div>
-                <p className="text-sm font-semibold text-muted">질문</p>
-                <p className="mt-3 text-xl leading-8 text-ink">
-                  지금의 일과 관계에서 반복되는 흐름을 어떻게 읽어야 할까요?
-                </p>
-                <div className="excerpt-box mt-7">
-                  <p className="text-sm font-semibold text-clay">
-                    일부 발췌
-                  </p>
-                  <p className="mt-3 text-base leading-8 text-ink">
-                    이 명식은 단순히 안정적인 일을 찾는 것보다, 관찰하고
-                    정리하고 언어화하는 과정에서 힘을 얻는 구조가 강합니다.
-                  </p>
-                </div>
-              </div>
-              <ol className="space-y-3">
-                {tableOfContents.map((item, index) => (
-                  <li className="toc-item" key={item}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <strong>{item}</strong>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </article>
-        </section>
+        <SampleReportPreview />
 
         <section
           id="process"
