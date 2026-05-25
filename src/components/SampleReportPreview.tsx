@@ -1,6 +1,6 @@
 "use client";
 
-import { KeyboardEvent, useMemo, useState } from "react";
+import { KeyboardEvent, useState } from "react";
 
 type SampleReportId = "temperament" | "career" | "relationship";
 
@@ -86,12 +86,9 @@ export function SampleReportPreview() {
   const [activeReportId, setActiveReportId] =
     useState<SampleReportId>("temperament");
 
-  const activeReport = useMemo(
-    () =>
-      sampleReports.find((report) => report.id === activeReportId) ??
-      sampleReports[0],
-    [activeReportId],
-  );
+  const activeReport =
+    sampleReports.find((report) => report.id === activeReportId) ??
+    sampleReports[0];
 
   function handleTabKeyDown(
     event: KeyboardEvent<HTMLButtonElement>,

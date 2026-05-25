@@ -1,3 +1,4 @@
+import { FaqAccordion } from "@/components/FaqAccordion";
 import { SampleReportPreview } from "@/components/SampleReportPreview";
 
 const APPLICATION_FORM_URL =
@@ -164,32 +165,37 @@ const faqItems = [
   {
     question: "출생 시간을 몰라도 신청할 수 있나요?",
     answer:
-      "가능합니다. 다만 출생 시간이 없으면 시주와 일부 세부 해석이 달라질 수 있습니다. 이 경우 리포트에는 ‘출생 시간 미상 기준’이라고 표시하고, 단정이 필요한 부분은 조심스럽게 범위를 조정해 해석합니다.",
+      "가능합니다. 다만 출생 시간이 없으면 시주가 빠지기 때문에, 성향의 세부 결이나 특정한 흐름을 읽는 방식에는 차이가 생길 수 있습니다. 이 경우 리포트에는 ‘출생 시간 미상 기준’이라고 명확히 표시하고, 단정이 필요한 부분은 조심스럽게 범위를 조정해 해석합니다. 모르는 정보를 억지로 추측하기보다는, 확인 가능한 명식 구조 안에서 읽을 수 있는 부분을 중심으로 정리합니다.",
   },
   {
     question: "리포트는 어떤 형식으로 받나요?",
     answer:
-      "초기에는 PDF 또는 문서 링크 형태로 제공하는 것을 기준으로 합니다. 신청 방식에 따라 이메일, 오픈채팅, 링크 전달 방식으로 조정할 수 있으며, 읽기 편한 문서형 리포트로 정리하는 것을 우선합니다.",
+      "리포트는 PDF 파일 형태로 정리해 전달합니다. 신청서에 기입해 주신 이메일, 오픈채팅, 기타 연락망을 기준으로 파일을 보내드릴 예정입니다. 결록의 리포트는 짧은 운세 답변보다, 천천히 다시 읽을 수 있는 문서형 해석을 지향합니다. 한 번 보고 끝나는 답변이 아니라, 고민이 반복될 때 다시 펼쳐볼 수 있는 기록물에 가깝게 정리합니다.",
   },
   {
     question: "사주를 잘 몰라도 이해할 수 있나요?",
     answer:
-      "네. 결록은 전문 용어를 그대로 늘어놓는 방식보다, 명식의 구조를 일상적인 언어로 번역하는 것을 중요하게 봅니다. 필요한 용어는 짧게 설명하고, 실제 관계와 선택의 장면에 연결해 읽을 수 있도록 구성합니다.",
+      "네. 결록은 전문 용어를 그대로 늘어놓는 방식보다, 명식의 구조를 일상적인 언어로 번역하는 것을 중요하게 봅니다. 오행, 십성, 대운 같은 용어가 필요할 때는 짧게 설명하되, 용어 자체보다 실제 삶에서 어떻게 드러나는지를 중심으로 풀이합니다. 예를 들어 ‘재성이 강하다’에서 끝내지 않고, 돈을 대하는 방식, 관계에서 반복되는 선택, 일할 때의 긴장감처럼 구체적인 장면으로 연결합니다.",
   },
   {
     question: "결과가 무조건 맞는 건가요?",
     answer:
-      "아닙니다. 결록의 리포트는 자기이해와 방향 정리를 위한 참고 자료입니다. 사람의 삶은 명식 하나로만 결정되지 않으며, 중요한 선택은 현실 정보와 본인의 판단을 함께 놓고 결정하는 것이 좋습니다.",
+      "아닙니다. 결록의 리포트는 미래를 확정하거나 선택을 대신 내려주는 문서가 아닙니다. 사주는 한 사람의 기질과 반복되는 흐름을 읽는 참고 자료일 뿐, 삶 전체를 하나의 답으로 고정하지 않습니다. 중요한 선택은 현실적인 정보, 현재 상황, 본인의 판단을 함께 놓고 결정하는 것이 좋습니다. 결록은 겁을 주거나 단정하기보다, 지금의 고민을 조금 더 선명하게 바라볼 수 있는 언어를 제공하는 쪽에 가깝습니다.",
   },
   {
     question: "궁합 리포트는 연애만 가능한가요?",
     answer:
-      "아닙니다. 연애뿐 아니라 가족, 친구, 동료, 동업 관계처럼 반복되는 관계 패턴을 보고 싶은 경우에도 신청할 수 있습니다. 관계의 좋고 나쁨을 단정하기보다, 어디서 잘 맞고 어디서 부딪히는지를 중심으로 정리합니다.",
+      "아닙니다. 연애뿐 아니라 가족, 친구, 동료, 동업 관계처럼 반복되는 관계 패턴을 보고 싶은 경우에도 신청할 수 있습니다. 궁합 리포트는 단순히 ‘잘 맞는다/안 맞는다’를 판정하는 데 목적이 있지 않습니다. 두 사람이 어디서 편안함을 느끼고, 어디서 오해가 반복되며, 어떤 지점에서 속도 차이가 생기는지를 중심으로 봅니다. 관계를 계속할지 말지를 대신 결정하기보다, 관계 안에서 보이는 구조를 더 잘 이해할 수 있도록 정리합니다.",
   },
   {
     question: "질문을 어떻게 적어야 할지 모르겠어요.",
     answer:
-      "완벽하게 정리된 질문이 아니어도 괜찮습니다. ‘요즘 일이 잘 안 풀리는 이유가 궁금해요’, ‘이 관계가 왜 이렇게 힘든지 알고 싶어요’처럼 지금 가장 걸리는 문장 하나만 남겨도 충분합니다.",
+      "완벽하게 정리된 질문이 아니어도 괜찮습니다. ‘요즘 일이 잘 안 풀리는 이유가 궁금해요’, ‘이 관계가 왜 이렇게 힘든지 알고 싶어요’, ‘나는 어떤 방식으로 살아야 덜 무너질까요?’처럼 지금 가장 오래 맴도는 문장 하나만 있어도 충분합니다. 다만 질문은 디테일하게 적어주실수록 더 깊고 구체적인 조언이 가능합니다. 상황, 반복되는 감정, 고민의 배경을 함께 적어주면 리포트도 훨씬 입체적으로 정리됩니다.",
+  },
+  {
+    question: "신청 후에는 어떻게 진행되나요?",
+    answer:
+      "신청서를 제출하면 작성 내용을 확인한 뒤, 리포트 작성 가능 여부와 전달 방식을 순차적으로 안내합니다. 초기 운영 기간에는 신청량과 질문의 범위에 따라 전달 일정이 달라질 수 있습니다. 총정리 리포트처럼 범위가 넓거나 질문이 복합적인 경우에는 오픈채팅으로 먼저 방향을 조율할 수 있습니다. 결록은 빠르게 찍어내는 답변보다, 질문의 맥락을 읽고 문서로 정리하는 과정을 우선합니다.",
   },
 ];
 
@@ -243,6 +249,13 @@ export default function Home() {
           <a href="#top" className="wordmark" aria-label="결록 홈으로 이동">
             결록
           </a>
+          <a
+            aria-label="오픈채팅 문의 열기"
+            className="nav-link mobile-inquiry-link"
+            {...getExternalLinkProps(OPEN_CHAT_URL)}
+          >
+            문의
+          </a>
           <nav
             className="hidden items-center gap-7 text-sm font-medium text-muted sm:flex"
             aria-label="주요 영역"
@@ -258,6 +271,13 @@ export default function Home() {
             </a>
             <a className="nav-link" href="#faq">
               FAQ
+            </a>
+            <a
+              aria-label="오픈채팅 문의 열기"
+              className="nav-link"
+              {...getExternalLinkProps(OPEN_CHAT_URL)}
+            >
+              문의
             </a>
           </nav>
         </header>
@@ -516,6 +536,15 @@ export default function Home() {
                   신청 버튼을 누르면 Google Form 신청서가 새 창으로 열립니다.
                 </p>
               </div>
+              <div className="inquiry-helper">
+                <p>
+                  신청 전 리포트 종류가 고민되거나, 총정리 리포트처럼 범위가
+                  넓은 문의는 오픈채팅으로 먼저 이야기해 주세요.
+                </p>
+                <a {...getExternalLinkProps(OPEN_CHAT_URL)}>
+                  오픈채팅으로 문의하기
+                </a>
+              </div>
             </div>
             <ol className="apply-steps" aria-label="신청 전 준비할 내용">
               {applicationNotes.map((note, index) => (
@@ -539,14 +568,7 @@ export default function Home() {
                 신청 전에 자주 묻는 질문.
               </h2>
             </div>
-            <div className="faq-list">
-              {faqItems.map((item) => (
-                <details className="faq-card" key={item.question}>
-                  <summary>{item.question}</summary>
-                  <p>{item.answer}</p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion items={faqItems} />
           </div>
         </section>
 
@@ -586,12 +608,21 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <a
-              className="final-cta-button"
-              {...getExternalLinkProps(APPLICATION_FORM_URL)}
-            >
-              리포트 신청하기
-            </a>
+            <div className="final-cta-actions">
+              <a
+                className="final-cta-button"
+                {...getExternalLinkProps(APPLICATION_FORM_URL)}
+              >
+                리포트 신청하기
+              </a>
+              <a
+                aria-label="오픈채팅 문의 열기"
+                className="final-inquiry-link"
+                {...getExternalLinkProps(OPEN_CHAT_URL)}
+              >
+                오픈채팅 문의
+              </a>
+            </div>
           </div>
         </section>
 
