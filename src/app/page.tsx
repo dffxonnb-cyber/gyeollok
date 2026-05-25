@@ -1,4 +1,5 @@
 const APPLICATION_FORM_URL = "#apply";
+const OPEN_CHAT_URL = "#apply";
 
 const visualCards = [
   {
@@ -80,7 +81,8 @@ const reportProducts = [
   {
     title: "기질 리포트",
     label: "입문형",
-    price: "19,000원",
+    priceLabel: "첫 오픈 베타가",
+    price: "8,200원",
     length: "A4 약 3~5p",
     delivery: "PDF 또는 문서 링크 제공",
     description:
@@ -91,7 +93,8 @@ const reportProducts = [
   {
     title: "커리어 리포트",
     label: "대표 상품",
-    price: "49,000원",
+    priceLabel: "첫 오픈 베타가",
+    price: "16,700원",
     length: "A4 약 6~9p",
     delivery: "PDF 또는 문서 링크 제공",
     description:
@@ -103,7 +106,8 @@ const reportProducts = [
   {
     title: "관계·궁합 리포트",
     label: "관계 분석",
-    price: "59,000원",
+    priceLabel: "첫 오픈 베타가",
+    price: "16,700원",
     length: "A4 약 7~10p",
     delivery: "PDF 또는 문서 링크 제공",
     description:
@@ -144,6 +148,13 @@ const applicationNotes = [
   "생년월일과 가능하다면 출생 시간을 준비합니다.",
   "지금 가장 걸리는 질문을 한 문장으로 남깁니다.",
   "받고 싶은 리포트 종류를 선택합니다.",
+];
+
+const questionExamples = [
+  "나는 어떤 방식으로 일할 때 오래 버틸 수 있을까?",
+  "이 관계가 왜 자꾸 같은 지점에서 부딪힐까?",
+  "지금 커리어 방향을 바꾸는 게 맞을까?",
+  "내가 반복해서 놓치는 선택의 패턴은 뭘까?",
 ];
 
 const faqItems = [
@@ -336,8 +347,11 @@ export default function Home() {
                 <br />
                 세 가지 기록.
               </h2>
+              <p className="pricing-note">
+                결록의 리포트 형식과 운영 흐름을 함께 다듬는 초기 가격입니다.
+              </p>
             </div>
-            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {reportProducts.map((report) => (
                 <article
                   className={`report-card ${
@@ -357,9 +371,10 @@ export default function Home() {
                   <p className="mt-4 text-base leading-7 text-cream/76">
                     {report.description}
                   </p>
-                  <p className="mt-6 text-3xl font-semibold tracking-normal text-cream">
-                    {report.price}
-                  </p>
+                  <div className="report-price-block">
+                    <p className="report-price-label">{report.priceLabel}</p>
+                    <p className="report-price">{report.price}</p>
+                  </div>
                   <dl className="report-details">
                     <div>
                       <dt>분량</dt>
@@ -379,6 +394,10 @@ export default function Home() {
                   </a>
                 </article>
               ))}
+            </div>
+            <div className="custom-report-note">
+              <p>총정리 리포트를 원하시는 분은 오픈채팅으로 문의해 주세요.</p>
+              <a href={OPEN_CHAT_URL}>총정리 리포트 문의하기</a>
             </div>
           </div>
         </section>
@@ -488,6 +507,30 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+          <div className="question-guide">
+            <div className="question-guide-copy">
+              <p className="section-kicker">질문 예시</p>
+              <h2 className="section-title mt-4 text-ink">
+                이런 질문으로 시작할 수 있어요.
+              </h2>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-muted sm:text-lg">
+                질문이 완벽하게 정리되어 있지 않아도 괜찮습니다. 지금 가장 오래
+                맴도는 문장 하나면 충분합니다. 다만 상황을 조금 더 구체적으로
+                적어주실수록 리포트의 깊이도 함께 올라갑니다.
+              </p>
+            </div>
+            <div className="question-card-grid" aria-label="신청 질문 예시">
+              {questionExamples.map((question, index) => (
+                <article className="question-card" key={question}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{question}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section
           id="apply"
           className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10"
@@ -503,6 +546,16 @@ export default function Home() {
                 문서형 리포트로 정리합니다. 처음부터 완벽한 질문이 아니어도
                 괜찮습니다. 지금 가장 걸리는 한 문장만 있으면 됩니다.
               </p>
+              <div className="application-hints">
+                <p>
+                  질문은 디테일하게 적어주실수록 더 깊고 구체적인 조언이
+                  가능합니다.
+                </p>
+                <p>
+                  리포트는 신청 내용 확인 후 순차적으로 작성됩니다. 초기 운영
+                  기간에는 개별 안내를 기준으로 전달 일정을 조율합니다.
+                </p>
+              </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   className="button-primary"
@@ -579,10 +632,17 @@ export default function Home() {
                 결일 수 있습니다. 결록은 그 결을 겁주지 않고, 다시 선택할 수
                 있는 문장으로 정리합니다.
               </p>
-              <p className="mt-4 text-sm leading-6 text-muted">
-                신청 폼은 추후 Google Form 또는 자체 신청 페이지로 연결할 수
-                있습니다.
-              </p>
+              <div className="final-cta-notes">
+                <p>처음 신청은 가볍게, 질문은 한 문장으로 시작해도 괜찮습니다.</p>
+                <p>
+                  질문은 디테일하게 적어주실수록 더 깊고 구체적인 조언이
+                  가능합니다.
+                </p>
+                <p>
+                  신청 폼은 추후 Google Form 또는 자체 신청 페이지로 연결할 수
+                  있습니다.
+                </p>
+              </div>
             </div>
             <a className="final-cta-button" href={APPLICATION_FORM_URL}>
               리포트 신청하기

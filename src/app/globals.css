@@ -239,7 +239,7 @@ summary:focus-visible {
   display: grid;
   gap: 1rem;
   padding: 1rem;
-  animation: riseCards 38s linear infinite;
+  animation: riseCards 28s linear infinite;
   will-change: transform;
 }
 
@@ -504,11 +504,11 @@ summary:focus-visible {
 
 .report-card {
   display: flex;
-  min-height: 32rem;
+  min-height: 34rem;
   flex-direction: column;
   border: 1px solid rgba(255, 248, 235, 0.16);
   border-radius: 8px;
-  padding: clamp(1.45rem, 3.2vw, 2rem);
+  padding: clamp(1.55rem, 3.2vw, 2.15rem);
   background:
     linear-gradient(135deg, rgba(255, 248, 235, 0.1), transparent 54%),
     rgba(255, 248, 235, 0.055);
@@ -548,11 +548,42 @@ summary:focus-visible {
   word-break: keep-all;
 }
 
+.pricing-note {
+  margin: 1.5rem 0 0;
+  max-width: 38rem;
+  color: rgba(255, 248, 235, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.report-price-block {
+  margin-top: 1.7rem;
+}
+
+.report-price-label {
+  margin: 0 0 0.38rem;
+  color: var(--sand);
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+}
+
+.report-price {
+  margin: 0;
+  color: var(--cream);
+  font-size: clamp(2rem, 3.8vw, 2.45rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 .report-details {
   display: grid;
-  gap: 0.7rem;
-  margin: 1.25rem 0 0;
-  padding: 1.15rem 0 0;
+  gap: 0.78rem;
+  margin: 1.45rem 0 1.45rem;
+  padding: 1.2rem 0 0;
   border-top: 1px solid rgba(255, 248, 235, 0.16);
 }
 
@@ -579,6 +610,7 @@ summary:focus-visible {
 
 .report-button {
   display: inline-flex;
+  flex-shrink: 0;
   min-height: 3rem;
   align-items: center;
   justify-content: center;
@@ -604,6 +636,36 @@ summary:focus-visible {
   border-color: rgba(255, 248, 235, 0.48);
   background: rgba(255, 248, 235, 0.16);
   transform: translateY(-1px);
+}
+
+.custom-report-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-top: 1.35rem;
+  border: 1px solid rgba(255, 248, 235, 0.14);
+  border-radius: 8px;
+  padding: 1.05rem;
+  background: rgba(255, 248, 235, 0.06);
+  color: rgba(255, 248, 235, 0.74);
+}
+
+.custom-report-note p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.custom-report-note a {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(216, 198, 173, 0.54);
+  color: var(--cream);
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .sample-report {
@@ -779,6 +841,24 @@ summary:focus-visible {
   word-break: keep-all;
 }
 
+.application-hints {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 46rem;
+  margin-top: 1.35rem;
+}
+
+.application-hints p {
+  margin: 0;
+  border-left: 2px solid rgba(140, 96, 79, 0.34);
+  padding-left: 0.85rem;
+  color: var(--deep-brown);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
 .faq-list {
   display: grid;
   gap: 0.85rem;
@@ -837,9 +917,61 @@ summary:focus-visible {
   letter-spacing: 0.18em;
 }
 
+.question-guide {
+  display: grid;
+  gap: 2rem;
+  border: 1px solid rgba(59, 42, 32, 0.14);
+  border-radius: 8px;
+  padding: clamp(1.35rem, 4.2vw, 2.5rem);
+  background:
+    linear-gradient(135deg, rgba(255, 248, 235, 0.72), rgba(244, 237, 223, 0.48)),
+    rgba(255, 248, 235, 0.58);
+  box-shadow: 0 22px 60px rgba(39, 30, 21, 0.075);
+}
+
+.question-card-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.question-card {
+  display: grid;
+  grid-template-columns: 2.7rem 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  border: 1px solid rgba(59, 42, 32, 0.12);
+  border-radius: 8px;
+  padding: 1rem;
+  background: rgba(255, 248, 235, 0.66);
+}
+
+.question-card span {
+  color: var(--clay);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.question-card p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
 .notice-panel {
   max-width: 56rem;
+  margin-inline: auto;
   padding: clamp(1.25rem, 4vw, 2rem);
+  text-align: center;
+}
+
+.notice-panel p:last-child {
+  max-width: 46rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .final-cta {
@@ -858,6 +990,20 @@ summary:focus-visible {
   font-weight: 650;
   line-height: 1.2;
   letter-spacing: 0;
+  word-break: keep-all;
+}
+
+.final-cta-notes {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.final-cta-notes p {
+  margin: 0;
   word-break: keep-all;
 }
 
@@ -916,6 +1062,16 @@ summary:focus-visible {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .custom-report-note {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .question-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .value-band {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -969,6 +1125,11 @@ summary:focus-visible {
     background: rgba(216, 198, 173, 0.32);
   }
 
+  .question-guide {
+    grid-template-columns: minmax(0, 0.72fr) minmax(28rem, 1fr);
+    align-items: center;
+  }
+
   .apply-panel {
     grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.48fr);
     align-items: end;
@@ -983,7 +1144,28 @@ summary:focus-visible {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .rising-frame {
+    height: clamp(24rem, 52vw, 30rem);
+  }
+
+  .report-card:nth-child(3) {
+    grid-column: 1 / -1;
+    min-height: 28rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .rising-frame {
+    height: 38rem;
+  }
+}
+
 @media (max-width: 639px) {
+  .rising-frame {
+    height: clamp(26.25rem, 123vw, 31.25rem);
+  }
+
   .rising-frame::before,
   .rising-frame::after {
     height: 2.6rem;
@@ -1000,6 +1182,10 @@ summary:focus-visible {
 
   .visual-card {
     min-height: 8.9rem;
+  }
+
+  .report-card {
+    min-height: auto;
   }
 
   .hero-title span {
