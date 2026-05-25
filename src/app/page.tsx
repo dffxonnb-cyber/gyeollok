@@ -1,17 +1,7 @@
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { SampleReportPreview } from "@/components/SampleReportPreview";
-
-const APPLICATION_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSe_CutJ3d_phBNuSay0NcDMC--84Ux9ZnXZiJcrK8LFaPYsRQ/viewform?usp=publish-editor";
-const OPEN_CHAT_URL = "https://open.kakao.com/o/ssHr6Cwi";
-
-function getExternalLinkProps(url: string) {
-  return {
-    href: url,
-    target: "_blank",
-    rel: "noreferrer",
-  } as const;
-}
+import { APPLICATION_FORM_URL, OPEN_CHAT_URL } from "@/config/links";
+import { getExternalLinkProps } from "@/lib/linkProps";
 
 const visualCards = [
   {
@@ -152,6 +142,13 @@ const applicationNotes = [
   "생년월일과 가능하다면 출생 시간을 준비합니다.",
   "지금 가장 걸리는 질문을 한 문장으로 남깁니다.",
   "받고 싶은 리포트 종류를 선택합니다.",
+];
+
+const operationSteps = [
+  "신청서 제출",
+  "내용 확인 및 입금 안내",
+  "리포트 작성",
+  "PDF 파일 전달",
 ];
 
 const questionExamples = [
@@ -555,6 +552,30 @@ export default function Home() {
               ))}
             </ol>
           </div>
+          <aside className="operation-guide" aria-labelledby="operation-guide-title">
+            <div>
+              <p className="section-kicker">진행 안내</p>
+              <h3 id="operation-guide-title">신청 후 진행 안내</h3>
+              <p>
+                신청서를 제출하면 작성 내용을 확인한 뒤, 리포트 작성 가능
+                여부와 입금 안내를 순차적으로 전달드립니다. 질문의 범위가 넓거나
+                총정리 리포트를 원하시는 경우에는 오픈채팅으로 먼저 방향을
+                조율할 수 있습니다.
+              </p>
+            </div>
+            <ol aria-label="신청 후 진행 순서">
+              {operationSteps.map((step, index) => (
+                <li key={step}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+            <p className="operation-guide-note">
+              PDF 파일은 신청서에 기입해 주신 이메일, 오픈채팅 등 연락망을
+              기준으로 전달됩니다.
+            </p>
+          </aside>
         </section>
 
         <section

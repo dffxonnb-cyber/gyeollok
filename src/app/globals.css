@@ -1115,6 +1115,97 @@ summary:focus-visible {
   line-height: 1.5;
 }
 
+.operation-guide {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  overflow: hidden;
+  margin-top: 1rem;
+  border: 1px solid rgba(59, 42, 32, 0.14);
+  border-radius: 8px;
+  padding: clamp(1.15rem, 3.6vw, 1.5rem);
+  background:
+    linear-gradient(135deg, rgba(255, 248, 235, 0.7), rgba(244, 237, 223, 0.5)),
+    rgba(255, 248, 235, 0.58);
+  box-shadow: 0 18px 52px rgba(39, 30, 21, 0.075);
+  isolation: isolate;
+}
+
+.operation-guide::before {
+  position: absolute;
+  inset: 0.8rem;
+  z-index: 0;
+  border: 1px solid rgba(59, 42, 32, 0.045);
+  pointer-events: none;
+  content: "";
+}
+
+.operation-guide > * {
+  position: relative;
+  z-index: 1;
+}
+
+.operation-guide h3 {
+  margin: 0.6rem 0 0;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.operation-guide p {
+  max-width: 54rem;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.operation-guide ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.operation-guide li {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px solid rgba(59, 42, 32, 0.1);
+  border-radius: 8px;
+  padding: 0.78rem 0.85rem;
+  background: rgba(255, 248, 235, 0.55);
+  color: var(--ink);
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.operation-guide li span {
+  color: var(--clay);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.operation-guide .operation-guide-note {
+  margin-top: 0;
+  border-left: 2px solid rgba(140, 96, 79, 0.3);
+  padding-left: 0.85rem;
+  color: var(--deep-brown);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.75;
+}
+
 .application-hints {
   display: grid;
   gap: 0.65rem;
@@ -1456,6 +1547,15 @@ summary:focus-visible {
 
   .question-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .operation-guide ol {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .operation-guide li {
+    grid-template-columns: 1fr;
+    align-content: start;
   }
 
   .value-band {
