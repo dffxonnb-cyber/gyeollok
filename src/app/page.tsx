@@ -40,9 +40,18 @@ const visualCards = [
 ];
 
 const supportingCopy = [
-  "좋다, 나쁘다를 넘어서 선택 가능한 언어로 바꿉니다.",
-  "운명을 겁주지 않고, 질문을 정리합니다.",
-  "명식의 결을 읽고, 삶의 방향을 기록합니다.",
+  {
+    label: "해석",
+    text: "좋다, 나쁘다를 넘어서 선택 가능한 언어로 바꿉니다.",
+  },
+  {
+    label: "질문",
+    text: "운명을 겁주지 않고, 지금의 질문을 정리합니다.",
+  },
+  {
+    label: "기록",
+    text: "명식의 결을 읽고, 삶의 방향을 문장으로 남깁니다.",
+  },
 ];
 
 const trustValues = [
@@ -50,6 +59,21 @@ const trustValues = [
   "보고서형 정리",
   "과장 없는 표현",
   "현실 선택지 중심",
+];
+
+const principleCards = [
+  {
+    title: "단정하지 않기",
+    text: "사주를 좋다, 나쁘다로 자르기보다 지금의 질문과 함께 읽습니다.",
+  },
+  {
+    title: "반복되는 결 읽기",
+    text: "감정, 관계, 일하는 방식에서 반복되는 흐름을 명식의 구조와 함께 봅니다.",
+  },
+  {
+    title: "선택지로 번역하기",
+    text: "추상적인 운세가 아니라 실제로 판단하고 움직일 수 있는 문장으로 정리합니다.",
+  },
 ];
 
 const reportProducts = [
@@ -100,19 +124,19 @@ const tableOfContents = [
 const processSteps = [
   {
     title: "정보 입력",
-    description: "생년월일과 태어난 시간, 현재의 질문을 남깁니다.",
+    description: "생년월일, 출생 시간, 출생 지역과 기본 질문을 남깁니다.",
   },
   {
     title: "질문 확인",
-    description: "리포트의 초점을 정하고 필요한 맥락을 살핍니다.",
+    description: "질문의 방향이 흐릿한 경우, 핵심 고민이 무엇인지 먼저 정리합니다.",
   },
   {
     title: "명식 해석",
-    description: "명식 안의 기질, 관계, 직업 흐름을 구조적으로 읽습니다.",
+    description: "오행, 십성, 대운 흐름을 바탕으로 반복되는 결을 읽습니다.",
   },
   {
     title: "리포트 전달",
-    description: "질문에 맞춘 문서형 리포트를 정돈해 전달합니다.",
+    description: "해석 결과를 문서형 리포트로 정리해 전달합니다.",
   },
 ];
 
@@ -126,27 +150,32 @@ const faqItems = [
   {
     question: "출생 시간을 몰라도 신청할 수 있나요?",
     answer:
-      "가능합니다. 다만 출생 시간이 없으면 시주와 일부 세부 해석이 달라질 수 있어, 리포트에는 ‘시간 미상 기준’이라고 표시하고 해석 범위를 조정합니다.",
+      "가능합니다. 다만 출생 시간이 없으면 시주와 일부 세부 해석이 달라질 수 있습니다. 이 경우 리포트에는 ‘출생 시간 미상 기준’이라고 표시하고, 단정이 필요한 부분은 조심스럽게 범위를 조정해 해석합니다.",
   },
   {
     question: "리포트는 어떤 형식으로 받나요?",
     answer:
-      "초기에는 PDF 또는 문서 링크 형태로 제공하는 것을 기준으로 합니다. 이후 신청 방식에 따라 이메일, 오픈채팅, 링크 전달 방식으로 조정할 수 있습니다.",
+      "초기에는 PDF 또는 문서 링크 형태로 제공하는 것을 기준으로 합니다. 신청 방식에 따라 이메일, 오픈채팅, 링크 전달 방식으로 조정할 수 있으며, 읽기 편한 문서형 리포트로 정리하는 것을 우선합니다.",
   },
   {
     question: "사주를 잘 몰라도 이해할 수 있나요?",
     answer:
-      "네. 결록은 전문 용어를 그대로 늘어놓기보다, 명식의 구조를 일상적인 언어와 실제 선택지로 바꾸는 것을 목표로 합니다.",
+      "네. 결록은 전문 용어를 그대로 늘어놓는 방식보다, 명식의 구조를 일상적인 언어로 번역하는 것을 중요하게 봅니다. 필요한 용어는 짧게 설명하고, 실제 관계와 선택의 장면에 연결해 읽을 수 있도록 구성합니다.",
   },
   {
     question: "결과가 무조건 맞는 건가요?",
     answer:
-      "아닙니다. 결록의 리포트는 자기이해와 방향 정리를 위한 참고 자료입니다. 삶의 중요한 결정은 현실 정보와 함께 판단해야 합니다.",
+      "아닙니다. 결록의 리포트는 자기이해와 방향 정리를 위한 참고 자료입니다. 사람의 삶은 명식 하나로만 결정되지 않으며, 중요한 선택은 현실 정보와 본인의 판단을 함께 놓고 결정하는 것이 좋습니다.",
   },
   {
     question: "궁합 리포트는 연애만 가능한가요?",
     answer:
-      "아닙니다. 연애뿐 아니라 가족, 친구, 동료, 동업 관계처럼 반복되는 관계 패턴을 보고 싶은 경우에도 신청할 수 있습니다.",
+      "아닙니다. 연애뿐 아니라 가족, 친구, 동료, 동업 관계처럼 반복되는 관계 패턴을 보고 싶은 경우에도 신청할 수 있습니다. 관계의 좋고 나쁨을 단정하기보다, 어디서 잘 맞고 어디서 부딪히는지를 중심으로 정리합니다.",
+  },
+  {
+    question: "질문을 어떻게 적어야 할지 모르겠어요.",
+    answer:
+      "완벽하게 정리된 질문이 아니어도 괜찮습니다. ‘요즘 일이 잘 안 풀리는 이유가 궁금해요’, ‘이 관계가 왜 이렇게 힘든지 알고 싶어요’처럼 지금 가장 걸리는 문장 하나만 남겨도 충분합니다.",
   },
 ];
 
@@ -197,11 +226,7 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <div className="site-texture">
         <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-          <a
-            href="#top"
-            className="text-xl font-semibold tracking-[-0.01em] text-ink"
-            aria-label="결록 홈으로 이동"
-          >
+          <a href="#top" className="wordmark" aria-label="결록 홈으로 이동">
             결록
           </a>
           <nav
@@ -251,41 +276,41 @@ export default function Home() {
           <ScrollRisingCards />
         </section>
 
-        <section className="border-y border-archive bg-paper/62">
-          <div className="mx-auto grid max-w-7xl gap-3 px-5 py-5 sm:px-8 md:grid-cols-3 lg:px-10">
-            {supportingCopy.map((copy) => (
-              <p
-                className="supporting-note text-sm leading-6 text-ink sm:text-base"
-                key={copy}
-              >
-                {copy}
-              </p>
+        <section className="px-5 sm:px-8 lg:px-10">
+          <div className="value-band mx-auto max-w-7xl">
+            {supportingCopy.map((copy, index) => (
+              <article className="value-item" key={copy.label}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <p>{copy.label}</p>
+                  <strong>{copy.text}</strong>
+                </div>
+              </article>
             ))}
           </div>
         </section>
 
-        <section
-          id="why"
-          className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.72fr_1fr] lg:px-10"
-        >
-          <div>
-            <p className="section-kicker">결록의 관점</p>
-            <h2 className="section-title mt-4 text-ink">
-              좋고 나쁨보다,
-              <br />
-              다시 선택할 수 있는 언어.
-            </h2>
-          </div>
-          <div className="why-panel">
-            <p className="text-xl leading-9 text-ink sm:text-2xl sm:leading-10">
-              결록은 운명을 단정하지 않습니다. 대신 명식 안에 반복되는 기질과
-              흐름을 읽고, 지금의 질문에 맞는 현실적인 선택지로 정리합니다.
-            </p>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {["반복되는 결", "현실의 질문", "문서형 해석"].map((item) => (
-                <div className="quiet-tile" key={item}>
-                  {item}
-                </div>
+        <section id="why" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+          <div className="why-shell">
+            <div className="why-copy">
+              <p className="section-kicker">결록의 관점</p>
+              <h2 className="section-title mt-4 text-ink">
+                결록은 운세보다
+                <br />
+                질문을 먼저 봅니다.
+              </h2>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+                좋다, 나쁘다로 단정하기보다 명식 안에 반복되는 기질과 선택의
+                방식을 읽고, 지금의 고민에 맞는 현실적인 언어로 정리합니다.
+              </p>
+            </div>
+            <div className="principle-grid">
+              {principleCards.map((card, index) => (
+                <article className="principle-card" key={card.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </article>
               ))}
             </div>
           </div>
@@ -432,36 +457,31 @@ export default function Home() {
 
         <section
           id="process"
-          className="border-y border-archive bg-paper/70 px-5 py-16 sm:px-8 sm:py-24 lg:px-10"
+          className="process-section border-y border-archive px-5 py-16 sm:px-8 sm:py-24 lg:px-10"
         >
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 lg:grid-cols-[0.7fr_1fr]">
-              <div>
-                <p className="section-kicker">진행 방식</p>
-                <h2 className="section-title mt-4 text-ink">
-                  질문을 남기면,
-                  <br />
-                  문서로 돌아옵니다.
-                </h2>
-              </div>
-              <p className="max-w-3xl text-lg leading-9 text-muted">
-                신청자는 생년월일과 질문을 남기고, 결록은 명식을 확인한 뒤
-                질문에 맞춰 문서형 리포트를 작성합니다.
+          <div className="process-shell mx-auto max-w-7xl">
+            <div className="process-intro">
+              <p className="section-kicker text-sand">진행 방식</p>
+              <h2 className="section-title mt-4 text-cream">
+                신청은 가볍게,
+                <br />
+                해석은 깊게 진행됩니다.
+              </h2>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-cream/72 sm:text-lg">
+                처음부터 완벽한 질문을 준비하지 않아도 괜찮습니다. 지금 가장
+                걸리는 한 문장을 남기면, 결록은 그 질문을 기준으로 명식의
+                흐름을 정리합니다.
               </p>
             </div>
 
-            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="process-timeline">
               {processSteps.map((step, index) => (
                 <li className="process-card" key={step.title}>
                   <span className="process-number">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-8 text-xl font-semibold text-ink">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-muted">
-                    {step.description}
-                  </p>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
                 </li>
               ))}
             </ol>
@@ -516,7 +536,7 @@ export default function Home() {
           id="faq"
           className="border-y border-archive bg-paper/62 px-5 py-16 sm:px-8 sm:py-24 lg:px-10"
         >
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.62fr_1fr]">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.58fr_1fr]">
             <div>
               <p className="section-kicker">FAQ</p>
               <h2 className="section-title mt-4 text-ink">
@@ -551,11 +571,20 @@ export default function Home() {
           <div className="final-cta">
             <div>
               <p className="section-kicker">마지막 안내</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight text-ink sm:text-4xl">
-                내 명식의 결을 문장으로 받아보고 싶다면
+              <h2 className="final-cta-title">
+                지금 가장 오래 맴도는 질문이 있다면
               </h2>
+              <p className="mt-5 max-w-3xl text-base leading-8 text-muted sm:text-lg">
+                그 질문은 단순한 고민이 아니라, 당신의 명식 안에서 반복되어 온
+                결일 수 있습니다. 결록은 그 결을 겁주지 않고, 다시 선택할 수
+                있는 문장으로 정리합니다.
+              </p>
+              <p className="mt-4 text-sm leading-6 text-muted">
+                신청 폼은 추후 Google Form 또는 자체 신청 페이지로 연결할 수
+                있습니다.
+              </p>
             </div>
-            <a className="button-primary" href={APPLICATION_FORM_URL}>
+            <a className="final-cta-button" href={APPLICATION_FORM_URL}>
               리포트 신청하기
             </a>
           </div>
